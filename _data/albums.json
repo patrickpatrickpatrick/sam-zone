@@ -1,0 +1,13 @@
+[
+	{
+		"name": "My cat photos",
+    "description": "Here are photographs of my cats.",
+    "photos": [
+      {
+        "name": "My cat",
+        "description": "This is my cat Beef. He is comfortable.",
+        "file": "https://pub-bc2ea9505a944587896668e296170742.r2.dev/Screenshot%202025-07-18%20at%2023.01.36.png"
+      }
+    ]
+	}
+]
