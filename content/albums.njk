@@ -1,0 +1,16 @@
+---js
+const eleventyNavigation = {
+	key: "Works",
+	order: 2
+};
+
+const eleventyComputed = {
+	title: "Works"
+}
+---
+
+<h1>Works</h1>
+
+{%- for album in albums %}
+  <img src="{{ album.photos[0].file }}" />
+{%- endfor %}

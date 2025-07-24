@@ -1,12 +1,29 @@
 [
 	{
 		"name": "My cat photos",
+    "folder": "cats",
     "description": "Here are photographs of my cats.",
+    "featured": true, 
     "photos": [
       {
         "name": "My cat",
-        "description": "This is my cat Beef. He is comfortable.",
-        "file": "https://pub-bc2ea9505a944587896668e296170742.r2.dev/Screenshot%202025-07-18%20at%2023.01.36.png"
+        "description": "Beef is lying down (as usual)",
+        "file": "public/img/here%20he%20is.png"
+      },
+      {
+        "name": "Close up",
+        "description": "Close up of my cat Beef's face",
+        "file": "public/img/close%20up.png"
+      },
+      {
+        "name": "Sitting in the chair",
+        "description": "My cat Beef sitting in a chair",
+        "file": "public/img/sitting%20in%20the%20chair.png"
+      },
+      {
+        "name": "Sleeping again",
+        "description": "My cat Beef sleeping again",
+        "file": "public/img/sleeping%20again.png"
       }
     ]
 	}

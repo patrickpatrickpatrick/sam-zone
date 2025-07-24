@@ -1,29 +1,22 @@
----js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
+{% css %}
+  .album {
+    overflow: scroll;
+    white-space: nowrap;
+    padding-bottom: 15px;
+  }
 
-const numberOfLatestPostsToShow = 3;
----
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+  .album img {
+    padding-right: 15px;
+    width: 250px;
+  }
+{% endcss %}
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+<div class="albums"> 
+  {%- for album in albums %}
+    <div class="album" >
+      {%- for photo in album.photos %}
+        <img src="{{ photo.file }}" alt="{{ photo.description }}" />
+      {%- endfor %}
+    </div>
+  {%- endfor %}
+</div>
