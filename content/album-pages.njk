@@ -6,6 +6,12 @@ pagination:
 permalink: "album/{{ album.name | slugify }}/"
 ---
  
+{% css %}
+  img {
+    margin-bottom: 20px;
+  }
+{% endcss %}
+
 <h1>
   {{ album.name }}
 </h1>
