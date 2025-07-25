@@ -11,5 +11,5 @@ permalink: "album/{{ album.name | slugify }}/"
 </h1>
 
 {%- for photo in album.photos %}
-  <img src="{{ photo.file }}" alt="{{ photo.description }}" />
+  <img src="{{ environment.mediaURL }}/{{ photo.file }}" alt="{{ photo.description }}" />
 {%- endfor %}

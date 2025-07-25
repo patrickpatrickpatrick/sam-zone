@@ -9,8 +9,27 @@ const eleventyComputed = {
 }
 ---
 
+{% css %}
+  .albums-grid {
+  	display: grid;
+  	grid-template-columns: 1fr 1fr 1fr;
+  	column-gap: 10px;
+  	row-gap: 10px;
+  }
+
+  img {
+		object-fit: cover;
+  	max-height: 200px;
+  	width: 250px;
+  }
+{% endcss %}
+
 <h1>Works</h1>
 
-{%- for album in albums %}
-  <img src="{{ album.photos[0].file }}" />
-{%- endfor %}
+<div class="albums-grid">
+	{%- for album in albums %}
+		<a href="/album/{{ album.name | slugify }}">
+			<img src="{{ environment.mediaURL }}/{{ album.photos[0].file }}" />
+		</a>
+	{%- endfor %}
+</div>

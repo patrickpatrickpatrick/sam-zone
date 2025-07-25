@@ -12,11 +12,11 @@
 {% endcss %}
 
 <div class="albums"> 
-  {%- for album in albums %}
-    <div class="album" >
-      {%- for photo in album.photos %}
-        <img src="{{ photo.file }}" alt="{{ photo.description }}" />
-      {%- endfor %}
-    </div>
-  {%- endfor %}
+  <div class="album">
+    {%- for photo in featured %}
+      <a href="/album/{{ photo.album | slugify }}">
+        <img src="{{ environment.mediaURL }}/{{ photo.file }}" alt="{{ photo.description }}" />
+      </a>
+    {%- endfor %}
+  </div>
 </div>

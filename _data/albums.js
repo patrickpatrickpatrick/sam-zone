@@ -7,18 +7,17 @@ export default async function () {
     type: "text",
     returnType: "text"
   });
+
   const data = parse(remoteData);
 
-  return await Promise.all(data.albums.map(async (albumName) => {
+  const albums = await Promise.all(data.albums.map(async (albumName) => {
     const albumData = await Fetch(`https://raw.githubusercontent.com/patrickpatrickpatrick/website-info/main/albums/${albumName}.yml`, {
       duration: "60s",
       type: "text",
       returnType: "text"
     });
-    const { photos } = parse(albumData);
+    return parse(albumData);
+  })).then((values) => values)
 
-    return photos
-  })).then((values) => {
-  	return values.reduce((allPhotos, photos) => [ ...allPhotos, ...photos ], [])
-  })
+  return albums
 }
