@@ -12,15 +12,15 @@ const eleventyComputed = {
 {% css %}
   .albums-grid {
   	display: grid;
-  	grid-template-columns: 1fr 1fr 1fr;
+  	grid-template-columns: 1fr;
   	column-gap: 10px;
   	row-gap: 10px;
   }
 
   .albums-grid__img {
 		object-fit: cover;
-  	max-height: 200px;
-  	width: 250px;
+  	max-height: 300px;
+  	width: 100%;
   }
 
   .albums-grid__name {
@@ -28,7 +28,27 @@ const eleventyComputed = {
   	padding-top: 10px;
   	text-align: center;
   	width: 100%;
-  } 
+  }
+
+	@media (min-width: 768px) {
+		.albums-grid {
+	  	grid-template-columns: 1fr 1fr;
+		}
+
+		.albums-grid__img {
+			max-height: 300px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.albums-grid {
+	  	grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.albums-grid__img {
+			max-height: 200px;
+		}		
+	}
 {% endcss %}
 
 <h1>Works</h1>

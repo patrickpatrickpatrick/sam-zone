@@ -2,7 +2,7 @@ import Fetch from "@11ty/eleventy-fetch";
 import { parse, stringify } from 'yaml'
 
 export default async function () {
-  const remoteData = await Fetch("https://raw.githubusercontent.com/patrickpatrickpatrick/website-info/main/data.yml", {
+  const remoteData = await Fetch(`${process.env.DATA_URL}${process.env.COMMIT_HASH || 'main'}/data.yml`, {
     duration: "60s",
     type: "text",
     returnType: "text"
@@ -10,7 +10,7 @@ export default async function () {
   const data = parse(remoteData);
 
   return await Promise.all(data.albums.map(async (albumName) => {
-    const albumData = await Fetch(`https://raw.githubusercontent.com/patrickpatrickpatrick/website-info/main/albums/${albumName}.yml`, {
+    const albumData = await Fetch(`${process.env.DATA_URL}${process.env.COMMIT_HASH || 'main'}/albums/${albumName}.yml`, {
       duration: "60s",
       type: "text",
       returnType: "text"
