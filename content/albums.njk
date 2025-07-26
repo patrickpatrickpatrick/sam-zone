@@ -13,41 +13,44 @@ const eleventyComputed = {
   .albums-grid {
   	display: grid;
   	grid-template-columns: 1fr;
-  	column-gap: 10px;
-  	row-gap: 10px;
+  	grid-column-gap: 10px;
+  	grid-row-gap: 20px;
   }
 
   .albums-grid__img {
-		object-fit: cover;
-  	max-height: 300px;
-  	width: 100%;
+		object-fit: contain;
+  	width: 300px;
+  	height: 200px;
   }
 
   .albums-grid__name {
   	display: block;
-  	padding-top: 10px;
+  	padding-top: 5px;
   	text-align: center;
   	width: 100%;
   }
 
-	@media (min-width: 768px) {
+	@media (min-width: 414px) {
+		object-fit: cover;
 		.albums-grid {
 	  	grid-template-columns: 1fr 1fr;
 		}
+	}  
 
-		.albums-grid__img {
-			max-height: 300px;
-		}
-	}
-
-	@media (min-width: 1024px) {
+	@media (min-width: 507px) {
 		.albums-grid {
 	  	grid-template-columns: 1fr 1fr 1fr;
 		}
+	}
 
-		.albums-grid__img {
-			max-height: 200px;
-		}		
+	@media (min-width: 768px) {
+		.albums-grid {
+	  	grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+
+	a {
+		margin: auto;
 	}
 {% endcss %}
 
