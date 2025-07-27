@@ -29,7 +29,7 @@ permalink: "photo/{{ photo.name | slugify }}/"
 
 <div class="photo__album-breadcrumb">
   <a href="/album/{{ photo.album | slugify }}/">
-    < Back to album
+    < {{ photo.album }}
   </a>
 </div>
 <img src="{{ environment.mediaURL }}/{{ photo.file }}" />

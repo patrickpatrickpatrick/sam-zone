@@ -18,7 +18,7 @@ const eleventyComputed = {
   }
 
   .albums-grid__img {
-		object-fit: contain;
+		object-fit: cover;
   	width: 300px;
   	height: 200px;
   }
@@ -31,7 +31,9 @@ const eleventyComputed = {
   }
 
 	@media (min-width: 414px) {
-		object-fit: cover;
+	  .albums-grid__img {
+			object-fit: cover;
+		}
 		.albums-grid {
 	  	grid-template-columns: 1fr 1fr;
 		}
