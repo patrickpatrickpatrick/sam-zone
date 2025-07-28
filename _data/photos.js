@@ -7,9 +7,9 @@ export default async function () {
     type: "text",
     returnType: "text"
   });
-  const data = parse(remoteData);
+  const { albums, featured_photos } = parse(remoteData);
 
-  return await Promise.all(data.albums.map(async (album) => {
+  return await Promise.all(albums.map(async (album) => {
     const albumData = await Fetch(`${process.env.DATA_URL}${process.env.COMMIT_HASH || 'main'}/albums/${album}.yml`, {
       duration: "60s",
       type: "text",
@@ -22,6 +22,7 @@ export default async function () {
       [photo.name]: {
         ...photo,
         album: name,
+        featured: featured_photos.indexOf(photo.name) >= 0
       }
     }), {})
   })).then((values) => {

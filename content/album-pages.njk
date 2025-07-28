@@ -50,6 +50,10 @@ permalink: "album/{{ album.name | slugify }}/"
   }
 {% endcss %}
 
+<h1>
+  {{ album.name }}
+</h1>
+
 <div class="albums-grid">
   {%- for photo in album.photos %}
     <a href="/photo/{{ photo.name | slugify }}">

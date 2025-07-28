@@ -8,10 +8,10 @@
 
 <div class="albums"> 
   <div class="album">
-    {%- for photo in featured %}
-      <a href="/album/{{ photo.album | slugify }}">
+    {%- for name, photo in photos %}
+      {%- if photo.featured %}
         <img src="{{ environment.mediaURL }}/{{ photo.file }}" alt="{{ photo.description }}" />
-      </a>
+      {%- endif %}
     {%- endfor %}
   </div>
 </div>

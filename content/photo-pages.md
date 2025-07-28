@@ -32,7 +32,6 @@ permalink: "photo/{{ photo.name | slugify }}/"
     < {{ photo.album }}
   </a>
 </div>
-<img src="{{ environment.mediaURL }}/{{ photo.file }}" />
 
 <div class="photo__album-navigation">
   {%- if pagination.page.previous.album === photo.album and pagination.href.previous %}
@@ -47,3 +46,7 @@ permalink: "photo/{{ photo.name | slugify }}/"
     </a>
   {%- endif %}
 </div>
+
+<img src="{{ environment.mediaURL }}/{{ photo.file }}" />
+
+{{ photo.detail }}

@@ -1,11 +1,11 @@
 ---js
 const eleventyNavigation = {
-	key: "Works",
+	key: "Portfolio",
 	order: 2
 };
 
 const eleventyComputed = {
-	title: "Works"
+	title: "Portfolio"
 }
 ---
 
@@ -18,7 +18,7 @@ const eleventyComputed = {
   }
 
   .albums-grid__img {
-		object-fit: cover;
+		object-fit: contain;
   	width: 300px;
   	height: 200px;
   }
@@ -31,9 +31,6 @@ const eleventyComputed = {
   }
 
 	@media (min-width: 414px) {
-	  .albums-grid__img {
-			object-fit: cover;
-		}
 		.albums-grid {
 	  	grid-template-columns: 1fr 1fr;
 		}
@@ -45,23 +42,25 @@ const eleventyComputed = {
 		}
 	}
 
-	@media (min-width: 768px) {
-		.albums-grid {
-	  	grid-template-columns: 1fr 1fr 1fr 1fr;
-		}
-	}
-
 	a {
 		margin: auto;
 	}
 {% endcss %}
 
-<h1>Works</h1>
+<h1>{{ title }}</h1>
 
 <div class="albums-grid">
 	{%- for album in albums %}
+		{% set cover_photo %}
+			{% if album.cover_photo %}
+				{{ photos[album.cover_photo].file }}
+			{% else %}
+				{{ album.photos[0].file }}
+			{% endif %}
+		{% endset %}
+
 		<a href="/album/{{ album.name | slugify }}">
-			<img class="albums-grid__img" src="{{ environment.mediaURL }}/{{ album.photos[0].file }}" />
+			<img class="albums-grid__img" src="{{ environment.mediaURL }}/{{ cover_photo }}" />
 			<span class="albums-grid__name">
 				{{ album.name }}
 			</span>
