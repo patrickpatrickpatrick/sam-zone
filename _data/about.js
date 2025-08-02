@@ -8,7 +8,7 @@ export default async function () {
     returnType: "text"
   });
 
-  const { about } = parse(remoteData);
+  const { about } = parse(remoteData.replace(/\u00A0/g, ' '));
 
   return about
 }

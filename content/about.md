@@ -6,4 +6,4 @@ const eleventyNavigation = {
 ---
 # About
 
-{{ about }}
+{{ about | safe }}
